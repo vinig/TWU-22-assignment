@@ -27,4 +27,12 @@ public class MarsRoverTest {
         assertTrue(xCoordinate==1 && yCoordinate==2 && roverDirection.equals("N"));
     }
 
+    @Test
+    public void shouldMoveRoverFromOneTwoNorthToOneThreeSouth() {
+        Rover rover = new Rover("1 2 N");
+        String movements = "LMLMLMLMM";
+        String finalPosition = rover.getFinalPosition(movements);
+        assertTrue(finalPosition.equals("1 3 S"));
+    }
+
 }
