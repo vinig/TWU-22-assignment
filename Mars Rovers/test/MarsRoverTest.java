@@ -35,4 +35,12 @@ public class MarsRoverTest {
         assertTrue(finalPosition.equals("1 3 N"));
     }
 
+    @Test
+    public void shouldMoveRoverFromThreeThreeEastToFiveOneEast() {
+        Rover rover = new Rover("3 3 E");
+        String movements = "MMRMMRMRRM";
+        String finalPosition = rover.getFinalPosition(movements);
+        assertTrue(finalPosition.equals("5 1 E"));
+    }
+
 }
