@@ -30,9 +30,17 @@ public class Rover {
     }
 
     private void initializeRover() {
-        setXCoordinate(Integer.parseInt(initialPosition[0]));
-        setYCoordinate(Integer.parseInt(initialPosition[1]));
-        setRoverDirection(initialPosition[2]);
+        if (initialPosition.length != 3){
+            throw new RoverException("Invalid input !!! Please enter all inputs (x_coordinates y_coordiantes direction_of_face)");
+        }else{
+            setXCoordinate(Integer.parseInt(initialPosition[0]));
+            setYCoordinate(Integer.parseInt(initialPosition[1]));
+            if (!DIRECTION_MAP.containsKey(initialPosition[2].toUpperCase())){
+                throw new RoverException("Invalid Direction !!! Please give one of these inputs (N/E/W/S)");
+            } else {
+            setRoverDirection(initialPosition[2]);
+            }
+        }
     }
 
     private void setRoverDirection(String roverDirection) {
@@ -71,8 +79,10 @@ public class Rover {
     private void takeAction(String instruction) {
         if (instruction.equals("L") || instruction.equals("R")){
             changeDirection(instruction);
-        } else {
+        } else if (instruction.equals("M")) {
             jumpStep();
+        } else {
+            throw new RoverException("Invalid Direction !!! Please give valid directions (L/R/M)");
         }
 
     }
@@ -89,8 +99,7 @@ public class Rover {
             setXCoordinate(getXCoordinate()-1);
 
         if ((getXCoordinate() > Plateau.getXCoordinate()) || (getXCoordinate() < 0) || (getYCoordinate() > Plateau.getYCoordinate()) || (getYCoordinate() < 0)){
-            System.out.println("Rover is out of plateau");
-            System.exit(1);
+           throw new RoverException("Rover is out of the plateau !!! Please give proper directions !!!");
         }
     }
 

@@ -43,4 +43,9 @@ public class MarsRoverTest {
         assertTrue(finalPosition.equals("5 1 E"));
     }
 
+    @Test
+    public void readingInputFromFile(){
+
+    }
+
 }
