@@ -18,4 +18,13 @@ public class MarsRoverTest {
         assertTrue(yCoordinate==5);
     }
 
+    @Test
+    public void shouldInitializePositionOfRoverToOneTwoNorth(){
+        Rover rover = new Rover("1 2 N");
+        int xCoordinate = rover.getXCoordinate();
+        int yCoordinate = rover.getYCoordinate();
+        String roverDirection = rover.getDirection();
+        assertTrue(xCoordinate==1 && yCoordinate==2 && roverDirection.equals("N"));
+    }
+
 }
