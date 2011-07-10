@@ -12,8 +12,8 @@ public class MarsRoverTest {
 
     @Test
     public void shouldReturnCoordinatesOfPlateauAsFiveAndFive(){
-        int xCoordinate = plateau.getXCoordinate();
-        int yCoordinate = plateau.getYCoordinate();
+        int xCoordinate = Plateau.getXCoordinate();
+        int yCoordinate = Plateau.getYCoordinate();
         assertTrue(xCoordinate == 5);
         assertTrue(yCoordinate==5);
     }
@@ -23,7 +23,7 @@ public class MarsRoverTest {
         Rover rover = new Rover("1 2 N");
         int xCoordinate = rover.getXCoordinate();
         int yCoordinate = rover.getYCoordinate();
-        String roverDirection = rover.getDirection();
+        String roverDirection = rover.getRoverDirection();
         assertTrue(xCoordinate==1 && yCoordinate==2 && roverDirection.equals("N"));
     }
 
@@ -32,7 +32,7 @@ public class MarsRoverTest {
         Rover rover = new Rover("1 2 N");
         String movements = "LMLMLMLMM";
         String finalPosition = rover.getFinalPosition(movements);
-        assertTrue(finalPosition.equals("1 3 S"));
+        assertTrue(finalPosition.equals("1 3 N"));
     }
 
 }

@@ -1,5 +1,5 @@
 public class Plateau {
-    private int xCoordinate, yCoordinate;
+    private static int xCoordinate, yCoordinate;
     private  String [] coordinatesOfPlateau;
 
     public Plateau(String coordinatesOfPlateau) {
@@ -7,11 +7,11 @@ public class Plateau {
         extractCoordinates();
     }
 
-    public int getYCoordinate() {
+    public static int getYCoordinate() {
         return yCoordinate;
     }
 
-    public int getXCoordinate() {
+    public static int getXCoordinate() {
         return xCoordinate;
     }
 
